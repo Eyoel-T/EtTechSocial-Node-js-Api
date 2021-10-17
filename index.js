@@ -42,6 +42,7 @@ dotenv.config();
 mongoose.connect(process.env.MONGO_DB_URL, () => {
 	console.log("connected to db to online");
 });
+//image one
 
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 //middleware
