@@ -1,0 +1,24 @@
+{
+	"name": "rest-api",
+	"version": "1.0.0",
+	"description": "social Media app",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js",
+		"heroku-postbuild": "cd client && npm install && npm run build"
+	},
+	"author": "Eyoel Tewodros",
+	"license": "ISC",
+	"dependencies": {
+		"bcrypt": "^5.0.1",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"helmet": "^4.6.0",
+		"mongoose": "^6.0.10",
+		"morgan": "^1.10.0",
+		"multer": "^1.4.3",
+		"nodemon": "^2.0.13",
+		"path": "^0.12.7",
+		"socket.io": "^4.3.1"
+	}
+}

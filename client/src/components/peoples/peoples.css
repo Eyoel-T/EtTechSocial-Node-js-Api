@@ -1,0 +1,16 @@
+.peoples {
+	flex: 5.5;
+}
+
+.sidebarFriendList1 {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	margin: 20px;
+}
+
+@media screen and (max-width: 430px) {
+	.peoples {
+		width: 420px;
+	}
+}

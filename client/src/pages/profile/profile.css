@@ -1,0 +1,89 @@
+.profile {
+	display: flex;
+}
+
+.profileRight {
+	flex: 9;
+}
+
+.profileCover {
+	height: 320px;
+	position: relative;
+}
+.profileCoverImg {
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.profileUserImg {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 150px;
+	border: 3px solid white;
+}
+.profileInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.profileInfoName {
+	font-size: 24px;
+}
+
+.profileInfoDesc {
+	font-weight: 300;
+}
+.profileRightBottom {
+	display: flex;
+}
+.uploadForm {
+	display: flex;
+
+	flex-direction: column;
+	align-items: center;
+	margin-left: 750px;
+}
+.uploadButton {
+	cursor: not-allowed;
+	margin-bottom: 10px;
+}
+
+.lowPixelContainer {
+	text-align: center;
+	margin: 20px;
+	cursor: default;
+}
+
+.lowPixel {
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #1877f2;
+	color: white;
+
+	cursor: pointer;
+}
+
+@media screen and (max-width: 430px) {
+	.uploadForm {
+		display: none;
+	}
+	.ProfileRightbar {
+		margin-left: 15px;
+	}
+	.rightbarFollowButton {
+		margin: auto;
+	}
+	.profileCoverImg {
+		width: 100vw;
+	}
+}

@@ -1,0 +1,267 @@
+.info {
+	background-color: #f0f2f5;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+}
+
+.infoWrapper {
+	padding: 100px;
+	display: flex;
+	margin: auto;
+	justify-content: space-between;
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	background-color: white;
+	border-radius: 10px;
+	position: relative;
+}
+
+.info.display {
+	height: calc(100vh - 50px);
+}
+
+.formLeft {
+	border-radius: 10px;
+	margin-left: 40px;
+	width: 100%;
+	height: 300px;
+	padding: 20px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.leftLable {
+	font-size: 20px;
+	font-weight: 500;
+	text-align: center;
+	color: gray;
+}
+.leftFormItem {
+	padding: 10px;
+	display: flex;
+
+	flex-direction: column;
+}
+
+.inputField {
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+}
+
+.inputField:focus {
+	outline-color: #004aaa;
+}
+.relaitonOption {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	border: 1px solid lightgray;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 15px;
+	font-weight: lighter;
+	color: gray;
+	width: 200px;
+}
+.relationButton {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.relationName {
+	font-size: 18px;
+	font-weight: 500;
+
+	color: gray;
+}
+.formRight {
+	border-radius: 10px;
+	margin-left: 40px;
+	width: 100%;
+	height: 300px;
+	padding: 20px;
+
+	display: flex;
+	flex-direction: column;
+
+	position: relative;
+}
+
+.rightLable {
+	font-size: 20px;
+	font-weight: 500;
+	text-align: center;
+	color: gray;
+}
+
+.uploadButton {
+	display: flex;
+	flex-direction: column;
+	margin-top: 15px;
+	margin-bottom: -2px;
+}
+
+.shareImgContainer1 {
+	width: 100px;
+	height: 0;
+	position: absolute;
+	left: 200px;
+	top: 65px;
+}
+.shareImg1 {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.shareCancelImg1 {
+	position: absolute;
+	top: 1;
+	left: 40px;
+	color: #063c83;
+}
+
+.shareImgContainer2 {
+	width: 100px;
+
+	position: absolute;
+	left: 200px;
+	top: 115px;
+}
+.shareImg2 {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.shareCancelImg2 {
+	position: absolute;
+	top: 1;
+	left: 40px;
+	color: #063c83;
+}
+
+.nextButton {
+	position: absolute;
+	bottom: 40px;
+	right: 70px;
+}
+.shareImgContainer3 {
+	width: 100px;
+	height: 0;
+	position: absolute;
+	left: -30px;
+	top: 60px;
+}
+.shareImgContainer4 {
+	width: 100px;
+
+	position: absolute;
+	left: -30px;
+	top: 115px;
+}
+
+@media screen and (max-width: 600px) {
+	.info {
+		background-color: #f0f2f5;
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+	}
+
+	.infoWrapper {
+		width: 90%;
+		padding: 0px;
+		display: flex;
+
+		justify-content: space-between;
+		-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+		box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+		background-color: white;
+		border-radius: 10px;
+		position: relative;
+		flex-direction: column;
+	}
+
+	.info.display {
+		height: calc(100vh - 50px);
+	}
+
+	.formLeft {
+		border-radius: 10px;
+		margin-left: 40px;
+		width: 100%;
+		height: 300px;
+		padding: 20px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.leftLable {
+		font-size: 20px;
+		font-weight: 500;
+		text-align: center;
+		color: gray;
+	}
+	.leftFormItem {
+		padding: 10px;
+		display: flex;
+
+		flex-direction: column;
+	}
+	.formLeft {
+		border-radius: 10px;
+		margin-left: 40px;
+		width: 60%;
+		height: 300px;
+		padding: 20px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.formRight {
+		border-radius: 10px;
+		margin-left: 40px;
+		width: 50%;
+		height: 300px;
+		padding: 20px;
+		margin-left: 40px;
+
+		display: flex;
+		flex-direction: column;
+
+		position: relative;
+		align-items: center;
+	}
+
+	.rightLable {
+		font-size: 20px;
+		font-weight: 500;
+		text-align: center;
+		color: gray;
+	}
+	.shareImgContainer1 {
+		width: 100px;
+		height: 0;
+		position: absolute;
+		left: 210px;
+		top: 65px;
+	}
+	.shareImgContainer2 {
+		width: 100px;
+
+		position: absolute;
+		left: 210px;
+		top: 115px;
+	}
+}

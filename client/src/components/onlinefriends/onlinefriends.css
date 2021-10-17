@@ -1,0 +1,27 @@
+.onlinefriends {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.onlinefriendsImg {
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+.onlineImgContainer {
+	position: relative;
+}
+
+.onlineImgBadge {
+	width: 10px;
+	height: 10px;
+	background-color: limegreen;
+	border-radius: 50%;
+	position: absolute;
+	top: 0px;
+	left: 30px;
+	border: 2px solid white;
+}

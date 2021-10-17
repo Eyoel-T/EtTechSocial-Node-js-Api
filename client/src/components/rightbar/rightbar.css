@@ -1,0 +1,144 @@
+.rightbar {
+	flex: 3.5;
+}
+
+.rightbarWrapper {
+	padding: 20px 20px 0px 0px;
+}
+
+.birthdayImg {
+	width: 40;
+	height: 40px;
+	margin-right: 10px;
+}
+
+.birthdayText {
+	font-weight: 500;
+	font-size: 15px;
+}
+
+.birthdayContainer {
+	display: flex;
+	align-items: center;
+}
+
+.rightbarAd {
+	width: 100%;
+	border-radius: 10px;
+	margin: 30px 0;
+}
+
+.rightbarFriendList {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.rightbarFriend {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+.rightbarTitle {
+	margin-bottom: 20px;
+}
+.rightbarProfileImgContainer {
+	margin-right: 10px;
+	position: relative;
+}
+.rightbarProfileImg {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+.rightBarOnline {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: limegreen;
+	color: white;
+	position: absolute;
+
+	top: -2px;
+	right: 0;
+	border: 2px solid white;
+}
+
+.rightbarUsername {
+	font-weight: 500;
+}
+
+.rightbarTitle {
+	font-size: 18px;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
+.rightbarInfo {
+	margin-bottom: 30px;
+}
+
+.rightbarInfoItem {
+	margin-bottom: 10px;
+}
+
+.rightbarInfoKey {
+	font-weight: 500;
+	margin-right: 15px;
+	color: #555;
+}
+
+.rightbarInfoValue {
+	font-weight: 300;
+}
+.rightbarFollowings {
+	display: flex;
+	flex-wrap: wrap;
+	/* justify-content: space-between; */
+}
+
+.rightbarFollowing {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 20px;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.rightbarFollowingImg {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.rightbarFollowButton {
+	margin-top: 30px;
+	margin-bottom: 10px;
+	border: none;
+	background-color: #1872f2;
+	color: white;
+	border-radius: 5px;
+	padding: 5px 10px;
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.rightbarFollowButton:focus {
+	outline: none;
+}
+
+@media screen and (max-width: 555px) {
+	.homeRightBar {
+		display: none;
+	}
+	.rightbarFollowings {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
