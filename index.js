@@ -41,12 +41,13 @@ dotenv.config();
 
 mongoose.connect(process.env.MONGO_DB_URL, () => {
 	console.log("connected to db to online");
- });
+});
 
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 //middleware
-app.use(cors());
+
 app.use(express.json());
+app.use(cors());
 app.use(helmet()); //secure the request that is comming to server
 app.use(morgan("common")); //log the requets status timestamp and others
 app.use("/api/user", userRoute);
@@ -120,6 +121,6 @@ app.get("/", (req, res) => {
 	res.send("welcome to home route");
 });
 
-server.listen(process.env.PORT || 8800, () => {
+app.listen(process.env.PORT || 8800, () => {
 	console.log("listening on *:3000");
 });
