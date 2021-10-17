@@ -39,7 +39,7 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 //middleware
 
 app.use(express.json());
-app.use(cors({ origin: "https://musing-franklin-75622c.netlify.app" }));
+app.use(cors());
 app.use(helmet()); //secure the request that is comming to server
 app.use(morgan("common")); //log the requets status timestamp and others
 app.use("/api/user", userRoute);
