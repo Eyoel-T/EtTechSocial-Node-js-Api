@@ -13,6 +13,7 @@ const app = express();
 const multer = require("multer");
 const path = require("path");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -38,6 +39,11 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 //middleware
 
 app.use(express.json());
+app.use(
+	cors({
+		origin: "https://musing-franklin-75622c.netlify.app/",
+	})
+);
 app.use(helmet()); //secure the request that is comming to server
 app.use(morgan("common")); //log the requets status timestamp and others
 app.use("/api/user", userRoute);
