@@ -14,6 +14,14 @@ const multer = require("multer");
 const path = require("path");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const http = require("http").createServer(app);
+const server = http;
+
+const io = require("socket.io")(http, {
+	cors: {
+		origin: "*",
+	},
+});
 
 dotenv.config();
 
@@ -21,25 +29,24 @@ dotenv.config();
 // 	console.log("connected to db to local");
 // });
 
-// mongoose.connect(
-// 	"mongodb://localhost:27017/socialDB",
-// 	{
-// 		useNewUrlParser: true,
-// 	},
-// 	() => {
-// 		console.log("connect to dB to Local");
-// 	}
-// );
+//mongoose.connect(
+//	"mongodb://localhost:27017/socialDB",
+//	{
+//		useNewUrlParser: true,
+//	},
+//	() => {
+//		console.log("connect to dB to Local");
+//	}
+//);
 
 mongoose.connect(process.env.MONGO_DB_URL, () => {
 	console.log("connected to db to online");
-});
+ });
 
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 //middleware
-
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 app.use(helmet()); //secure the request that is comming to server
 app.use(morgan("common")); //log the requets status timestamp and others
 app.use("/api/user", userRoute);
@@ -66,24 +73,53 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 	}
 });
 
-// app.use(express.static(path.join(__dirname, "/client/build")));
+let users = [];
 
-// app.get("*", function (req, res) {
-// 	res.sendFile("index.html", { root: __dirname }, function (err) {
-// 		if (err) {
-// 			res.status(500).send(err);
-// 		}
-// 	});
-// });
+const addUser = (userId, socketId) => {
+	!users.some((user) => user.userId === userId) &&
+		users.push({ userId, socketId });
+};
 
-// app.get("*", (req, res) => {
-// 	res.sendFile(path.join(__dirname, "/client/build", "index.tml"));
-// });
+const removeUser = (socketId) => {
+	users = users.filter((user) => user.socketId !== socketId);
+};
+
+const getUser = (userId) => {
+	return users.find((user) => user.userId === userId);
+};
+
+io.on("connect", (socket) => {
+	//when ceonnect
+
+	//take userId and socketId from user
+	socket.on("addUser", (userId) => {
+		console.log("a user connected.");
+		addUser(userId, socket.id);
+		io.emit("getUsers", users);
+	});
+
+	//send and get message
+	socket.on("sendMessage", ({ senderId, receiverId, text, profilePicture }) => {
+		const user = getUser(receiverId);
+		io.to(user.socketId).emit("getMessage", {
+			senderId,
+			text,
+			profilePicture,
+		});
+	});
+
+	//when disconnect
+	socket.on("disconnect", () => {
+		console.log("a user disconnected!");
+		removeUser(socket.id);
+		io.emit("getUsers", users);
+	});
+});
 
 app.get("/", (req, res) => {
 	res.send("welcome to home route");
 });
 
-app.listen(process.env.PORT || 8800, () => {
-	console.log("server running in port 8800");
+server.listen(process.env.PORT || 8800, () => {
+	console.log("listening on *:3000");
 });
