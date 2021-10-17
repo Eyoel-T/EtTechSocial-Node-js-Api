@@ -14,14 +14,14 @@ const multer = require("multer");
 const path = require("path");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const http = require("http").createServer(app);
-const server = http;
+// const http = require("http").createServer(app);
+// const server = http;
 
-const io = require("socket.io")(http, {
-	cors: {
-		origin: "*",
-	},
-});
+// const io = require("socket.io")(http, {
+// 	cors: {
+// 		origin: "*",
+// 	},
+// });
 
 dotenv.config();
 
@@ -45,9 +45,9 @@ mongoose.connect(process.env.MONGO_DB_URL, () => {
 
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 //middleware
-
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
+
 app.use(helmet()); //secure the request that is comming to server
 app.use(morgan("common")); //log the requets status timestamp and others
 app.use("/api/user", userRoute);
@@ -74,48 +74,48 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 	}
 });
 
-let users = [];
+// let users = [];
 
-const addUser = (userId, socketId) => {
-	!users.some((user) => user.userId === userId) &&
-		users.push({ userId, socketId });
-};
+// const addUser = (userId, socketId) => {
+// 	!users.some((user) => user.userId === userId) &&
+// 		users.push({ userId, socketId });
+// };
 
-const removeUser = (socketId) => {
-	users = users.filter((user) => user.socketId !== socketId);
-};
+// const removeUser = (socketId) => {
+// 	users = users.filter((user) => user.socketId !== socketId);
+// };
 
-const getUser = (userId) => {
-	return users.find((user) => user.userId === userId);
-};
+// const getUser = (userId) => {
+// 	return users.find((user) => user.userId === userId);
+// };
 
-io.on("connect", (socket) => {
-	//when ceonnect
+// io.on("connect", (socket) => {
+// 	//when ceonnect
 
-	//take userId and socketId from user
-	socket.on("addUser", (userId) => {
-		console.log("a user connected.");
-		addUser(userId, socket.id);
-		io.emit("getUsers", users);
-	});
+// 	//take userId and socketId from user
+// 	socket.on("addUser", (userId) => {
+// 		console.log("a user connected.");
+// 		addUser(userId, socket.id);
+// 		io.emit("getUsers", users);
+// 	});
 
-	//send and get message
-	socket.on("sendMessage", ({ senderId, receiverId, text, profilePicture }) => {
-		const user = getUser(receiverId);
-		io.to(user.socketId).emit("getMessage", {
-			senderId,
-			text,
-			profilePicture,
-		});
-	});
+// 	//send and get message
+// 	socket.on("sendMessage", ({ senderId, receiverId, text, profilePicture }) => {
+// 		const user = getUser(receiverId);
+// 		io.to(user.socketId).emit("getMessage", {
+// 			senderId,
+// 			text,
+// 			profilePicture,
+// 		});
+// 	});
 
-	//when disconnect
-	socket.on("disconnect", () => {
-		console.log("a user disconnected!");
-		removeUser(socket.id);
-		io.emit("getUsers", users);
-	});
-});
+// 	//when disconnect
+// 	socket.on("disconnect", () => {
+// 		console.log("a user disconnected!");
+// 		removeUser(socket.id);
+// 		io.emit("getUsers", users);
+// 	});
+// });
 
 app.get("/", (req, res) => {
 	res.send("welcome to home route");
