@@ -78,9 +78,9 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 // 	res.sendFile(path.join(__dirname, "/client/build", "index.tml"));
 // });
 
-// app.get("/", (req, res) => {
-// 	res.send("welcome to home route");
-// });
+app.get("/", (req, res) => {
+	res.send("welcome to home route");
+});
 
 app.listen(process.env.PORT || 8800, () => {
 	console.log("server running in port 8800");
