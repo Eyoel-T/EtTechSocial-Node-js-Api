@@ -64,15 +64,23 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 	}
 });
 
-app.use(express.static(path.join(__dirname, "../client/build")));
+// app.use(express.static(path.join(__dirname, "/client/build")));
 
-app.get("*", (req, res) => {
-	res.sendFile(path.join(__dirname, "../client/build", "index.html"));
-});
+// app.get("*", function (req, res) {
+// 	res.sendFile("index.html", { root: __dirname }, function (err) {
+// 		if (err) {
+// 			res.status(500).send(err);
+// 		}
+// 	});
+// });
 
-app.get("/", (req, res) => {
-	res.send("welcome to home route");
-});
+// app.get("*", (req, res) => {
+// 	res.sendFile(path.join(__dirname, "/client/build", "index.tml"));
+// });
+
+// app.get("/", (req, res) => {
+// 	res.send("welcome to home route");
+// });
 
 app.listen(process.env.PORT || 8800, () => {
 	console.log("server running in port 8800");
