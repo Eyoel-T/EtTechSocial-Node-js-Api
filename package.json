@@ -4,8 +4,7 @@
 	"description": "social Media app",
 	"main": "index.js",
 	"scripts": {
-		"start": "node index.js",
-		"heroku-postbuild": "cd client && npm install"
+		"start": "node index.js"
 	},
 	"author": "Eyoel Tewodros",
 	"license": "ISC",
