@@ -123,5 +123,5 @@ app.get("/", (req, res) => {
 });
 
 server.listen(process.env.PORT || 8800, () => {
-	console.log("listening on *:3000");
+	console.log("backend server running");
 });
